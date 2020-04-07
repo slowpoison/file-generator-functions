@@ -1,0 +1,23 @@
+{
+  "name": "file-generator-func",
+  "version": "1.0.0",
+  "description": "File generator functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "."
+  },
+  "keywords": [
+    "file",
+    "generator",
+    "iterator",
+    "function",
+    "genLines",
+    "genChar"
+  ],
+  "author": "Vishal Verma <vish@slowpoison.net>",
+  "license": "MIT"
+}
