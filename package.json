@@ -2,13 +2,16 @@
   "name": "file-generator-func",
   "version": "1.0.0",
   "description": "File generator functions",
-  "main": "index.js",
+  "main": "file-generator.js",
   "scripts": {
-    "test": "test"
+    "test": "mocha -R spec"
   },
   "repository": {
     "type": "git",
     "url": "."
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
   },
   "keywords": [
     "file",
