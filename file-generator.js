@@ -14,6 +14,18 @@ class FileGenerator {
     this._fileName = fileName;
   }
 
+  /*
+   * Yields a line at a time. A line is a string of chars ending in newline.
+   *
+   * Start by filling a buffer with data from the file. Search in this buffer
+   * for newlines, and for each one found, yield the string. If no more newline
+   * found, then copy the rest of the string to the beginning of the buffer
+   * and read more. Repeat.
+   *
+   * If the entire buffer didn't have a newline, create a new buffer double
+   * the size of the current buffer, copy existing buffer to it, and start
+   * the search again.
+   */
   async *genLines() {
     let fh = await fsp.open(this._fileName, 'r');
     let bufLength = 1024;
