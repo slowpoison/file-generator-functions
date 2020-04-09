@@ -13,14 +13,8 @@
   "devDependencies": {
     "mocha": "^7.1.1"
   },
-  "keywords": [
-    "file",
-    "generator",
-    "iterator",
-    "function",
-    "genLines",
-    "genChar"
-  ],
+  "keywords": [ "file", "generator", "iterator", "function", "genLines",
+    "genChars", "genBlocks", "generate", "lines", "chars", "blocks" ],
   "author": "Vishal Verma <vish@slowpoison.net>",
   "license": "MIT"
 }
