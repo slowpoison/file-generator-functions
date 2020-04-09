@@ -2,15 +2,20 @@
 
 const fsp = require('fs').promises;
 const defaultOptions = {
-  includeNewlines: true
+  includeNewlines: true,
+  initialBufferLength: 1024
   };
 
 class FileGenerator {
-  constructor(fileName, options = defaultOptions) {
+  constructor(fileName, userOptions = {}) {
+    this._options = {};
+    Object.assign(this._options, defaultOptions);
+    Object.assign(this._options, userOptions);
+
     let fileGen = this;
     if (!fileName || fileName.length == 0)
       throw new Error('Invalid file name');
-    this._includeNewlines = options.includeNewlines ? 1 : 0;
+    this._includeNewlines = this._options.includeNewlines ? 1 : 0;
     this._fileName = fileName;
   }
 
@@ -28,7 +33,7 @@ class FileGenerator {
    */
   async *genLines() {
     let fh = await fsp.open(this._fileName, 'r');
-    let bufLength = 1024;
+    let bufLength = this._options.initialBufferLength;
     let buffer = Buffer.alloc(bufLength);
     let bufEnd = -1;
     let lastNewlinePos;
