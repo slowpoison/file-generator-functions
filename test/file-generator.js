@@ -34,4 +34,15 @@ describe('FileGenerator', function() {
           .then(fileLines =>
               assert.equal(fileLines.toString(), lines.join("\n") + "\n"));
         });
+
+      it('should process a large file correctly', async function() {
+          let fileGen = new FileGenerator('test/big-file.txt');
+          let lines = 0;
+          let s = null;
+          for await (let line of fileGen.genLines()) {
+            ++lines;
+            s = line;
+          }
+          assert.equal(20000, lines);
+          });
     });
